@@ -1,16 +1,56 @@
-# React + Vite
+# POC Canvas AI Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal browser-based **image editor** built as a **POC assignment** using **React**, **HTML5 Canvas**, **OpenCV.js (WASM)**, and AI/ML APIs.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features Implemented
 
-## React Compiler
+### 1. Image Loading
+- Upload via file input or drag-and-drop.
+- Canvas auto-fits the image while maintaining aspect ratio.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. WASM Filter (Gaussian Blur)
+- Integrated **OpenCV.js** for real-time blur adjustment using a slider.
 
-## Expanding the ESLint configuration
+### 3. Background Removal
+- Uses **Remove.bg** API to remove background.
+- Shows loading indicator during processing.
+- Processed image overlays on the canvas.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 4. Natural-Language Commands
+- Users can type commands like:
+  - `draw red circle at x:200 y:150 radius:50`
+  - `brighten 20%`
+- Commands sent to **OpenAI Chat Completion** for JSON generation.
+- JSON parsed and executed on canvas (draw circle, adjust brightness).
+
+### 5. User Feedback
+- Toast notifications for errors and successful operations.
+
+---
+
+## How to Run Locally
+
+1. Clone repository:
+   ```bash
+   git clone https://github.com/your-username/canvas-ai-poc.git
+   cd canvas-ai-poc
+   ```
+2. Install dependencies:
+```bash
+npm install
+```
+3. Create .env with
+```bash
+OPENAI_API_KEY=sk-XXXXXXXXXXXXXXXX
+REMOVE_BG_API_KEY=your_key_here
+```
+4. Run dev server:
+```bash
+npm run dev
+```
+5. run server.
+```bash
+node server.js
+```
