@@ -1,3 +1,5 @@
+![Screenshot](Screenshot%20(80).png)
+
 # POC Canvas AI Editor
 
 A minimal browser-based **image editor** built as a **POC assignment** using **React**, **HTML5 Canvas**, **OpenCV.js (WASM)**, and AI/ML APIs.
